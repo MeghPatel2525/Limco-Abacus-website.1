@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Free Demo Registration | Limco Abacus</title>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<style>
+    @media (max-width: 768px){
+
+.features{
+flex-direction:column;
+align-items:center;
+}
+
+.benefits{
+grid-template-columns:1fr;
+}
+
+.stats{
+flex-direction:column;
+gap:20px;
+}
+
+.form-box{
+width:90%;
+}
+
+.contact-card{
+width:95%;
+}
+
+.details-card{
+width:95%;
+}
+
+.navbar{
+justify-content:center;
+flex-wrap:wrap;
+}
+
+}
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Segoe UI, sans-serif;
+}
+
+body{
+
+background:
+linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)),
+url("https://images.unsplash.com/photo-1588072432836-e10032774350") center/cover no-repeat;
+
+min-height:100vh;
+display:flex;
+flex-direction:column;
+
+}
+
+/* NAVBAR */
+
+.navbar{
+display:flex;
+justify-content:flex-end;
+padding:20px;
+background:rgba(0,0,0,0.5);
+}
+
+.navbar a{
+color:white;
+text-decoration:none;
+margin:0 20px;
+font-size:17px;
+}
+
+.navbar a:hover{
+color:#ff9800;
+}
+
+/* CENTER FORM */
+
+.wrapper{
+flex:1;
+display:flex;
+align-items:center;
+justify-content:center;
+padding:40px;
+}
+
+.form-box{
+
+width:420px;
+padding:40px;
+background:rgba(255,255,255,0.15);
+backdrop-filter:blur(10px);
+border-radius:12px;
+box-shadow:0 8px 30px rgba(0,0,0,0.4);
+color:white;
+
+}
+
+.form-box h2{
+text-align:center;
+margin-bottom:25px;
+}
+
+/* INPUT GROUP */
+
+.input-group{
+position:relative;
+margin-bottom:18px;
+}
+
+.input-group i{
+position:absolute;
+top:13px;
+left:12px;
+color:#333;
+}
+
+.input-group input{
+
+width:100%;
+padding:12px 12px 12px 40px;
+border:none;
+border-radius:6px;
+outline:none;
+
+}
+
+/* BUTTON */
+
+button{
+
+width:100%;
+padding:12px;
+background:#ff9800;
+border:none;
+color:white;
+font-size:17px;
+border-radius:6px;
+cursor:pointer;
+transition:0.3s;
+
+}
+
+button:hover{
+background:#e68900;
+}
+
+.note{
+margin-top:15px;
+text-align:center;
+font-size:14px;
+}
+
+/* CONTACT BUTTON */
+
+.contact-btn{
+
+display:block;
+text-align:center;
+margin-top:20px;
+padding:12px;
+background:white;
+color:black;
+text-decoration:none;
+border-radius:6px;
+font-weight:bold;
+transition:0.3s;
+
+}
+
+.contact-btn:hover{
+background:#ff9800;
+color:white;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="navbar">
+
+<a href="index.html">Home</a>
+<a href="details.html">Details</a>
+<a href="demo.html">Demo</a>
+<a href="contact.html">Contact</a>
+
+</div>
+
+<div class="wrapper">
+
+<div class="form-box">
+
+<h2>Free Demo Registration</h2>
+
+<form id="demoForm">
+
+<div class="input-group">
+<i class="fa fa-user"></i>
+<input id="studentName" type="text" placeholder="Student Name" required>
+</div>
+
+<div class="input-group">
+<i class="fa fa-user"></i>
+<input id="parentName" type="text" placeholder="Parent Name" required>
+</div>
+
+<div class="input-group">
+<i class="fa fa-phone"></i>
+<input id="phone" type="tel" placeholder="Phone Number" required>
+</div>
+
+<div class="input-group">
+<i class="fa fa-child"></i>
+<input id="age" type="number" placeholder="Student Age" required>
+</div>
+
+<button type="submit">Register For Free Demo</button>
+
+</form>
+
+<p class="note">🎉 3 Days Free Demo Class Available</p>
+
+<a class="contact-btn" href="contact.html">
+View Contact & Location
+</a>
+
+</div>
+
+</div>
+
+<script>
+
+const scriptURL="PASTE_SCRIPT_URL_HERE"
+
+document.getElementById("demoForm").addEventListener("submit",function(e){
+
+e.preventDefault()
+
+fetch(scriptURL,{
+
+method:"POST",
+
+body:JSON.stringify({
+
+studentName:document.getElementById("studentName").value,
+parentName:document.getElementById("parentName").value,
+phone:document.getElementById("phone").value,
+age:document.getElementById("age").value
+
+})
+
+})
+
+.then(res=>alert("Registration Submitted Successfully"))
+
+})
+
+</script>
+
+</body>
+</html>
